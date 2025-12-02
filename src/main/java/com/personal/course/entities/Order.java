@@ -100,6 +100,12 @@ public class Order implements Serializable {
         this.payment = payment;
     }
 
+    public Double getTotal() {
+        double sum = 0d;
+        for(OrderItem x: items) sum += x.getSubTotal();
+        return sum;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
